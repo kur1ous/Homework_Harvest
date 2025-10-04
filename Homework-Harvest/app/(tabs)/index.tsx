@@ -6,13 +6,16 @@ import ParallaxScrollView from '@/components/parallax-scroll-view';
 import { ThemedText } from '@/components/themed-text';
 import { ThemedView } from '@/components/themed-view';
 import { Link } from 'expo-router';
+import { CurrencyProvider } from '@/components/CurrencyContext';
 import PlayerController from '../PlayerController';
+import SomeComponent from '@/components/SomeComponent';
 
 export default function HomeScreen() {
   return (
-    <>
+    <CurrencyProvider>
       <PlayerController />
-    </>
+      <SomeComponent />
+    </CurrencyProvider>
   );
 }
 
