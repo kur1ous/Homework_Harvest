@@ -3,7 +3,7 @@ import { useState, useRef, useEffect } from 'react';
 
 const { width: SCREEN_WIDTH, height: SCREEN_HEIGHT } = Dimensions.get('window');
 
-export default function Index() {
+export default function PlayerController() {
   const [position, setPosition] = useState({ x: SCREEN_WIDTH / 2 - 20, y: SCREEN_HEIGHT / 2 - 20 });
   const [activeDirections, setActiveDirections] = useState({
     up: false,
@@ -118,9 +118,7 @@ export default function Index() {
 
   return (
     <View style={styles.container}>
-      {/* Game Area */}
       <View style={styles.gameArea}>
-        {/* Character */}
         <Animated.View
           style={[
             styles.character,
@@ -133,12 +131,8 @@ export default function Index() {
           <Text style={styles.characterText}>🧑</Text>
         </Animated.View>
       </View>
-
-      {/* Controls - Bottom Left Corner (Mobile) */}
       <View style={styles.controlsContainer}>
-        {/* Arrow buttons in cross formation */}
         <View style={styles.arrowContainer}>
-          {/* Up arrow */}
           <View style={styles.arrowRow}>
             <TouchableOpacity 
               style={[styles.arrowButton, activeDirections.up && styles.arrowButtonActive]} 
@@ -148,8 +142,6 @@ export default function Index() {
               <Text style={styles.arrow}>↑</Text>
             </TouchableOpacity>
           </View>
-          
-          {/* Left and Right arrows */}
           <View style={styles.arrowRow}>
             <TouchableOpacity 
               style={[styles.arrowButton, activeDirections.left && styles.arrowButtonActive]} 
@@ -167,8 +159,6 @@ export default function Index() {
               <Text style={styles.arrow}>→</Text>
             </TouchableOpacity>
           </View>
-          
-          {/* Down arrow */}
           <View style={styles.arrowRow}>
             <TouchableOpacity 
               style={[styles.arrowButton, activeDirections.down && styles.arrowButtonActive]} 
