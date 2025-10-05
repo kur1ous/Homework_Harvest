@@ -1,5 +1,20 @@
 // CurrencyContext.tsx
-import React, { createContext, useContext, useState } from 'react';
+import React, { createContext, useContext, useS  // Complete a task (decrements pepper effect if active)
+  const completeTask = () => {
+    if (pepperEffect.active && pepperEffect.tasksRemaining > 0) {
+      const newTasksRemaining = pepperEffect.tasksRemaining - 1;
+      if (newTasksRemaining <= 0) {
+        setPepperEffect({ active: false, tasksRemaining: 0 });
+      } else {
+        setPepperEffect({ active: true, tasksRemaining: newTasksRemaining });
+      }
+    }
+  };
+
+  // Toggle rain on/off
+  const toggleRain = () => {
+    setIsRaining(prev => !prev);
+  }; 'react';
 
 interface CurrencyContextType {
   currency: number;
@@ -16,6 +31,8 @@ interface CurrencyContextType {
   activePumpkinBoost: boolean;
   pepperEffect: { active: boolean; tasksRemaining: number };
   completeTask: () => void;
+  isRaining: boolean;
+  toggleRain: () => void;
 }
 
 const CurrencyContext = createContext<CurrencyContextType>({} as CurrencyContextType);
@@ -30,6 +47,7 @@ export const CurrencyProvider = ({ children }: { children: React.ReactNode }) =>
     active: false, 
     tasksRemaining: 0 
   });
+  const [isRaining, setIsRaining] = useState(false);
 
   // Add/subtract coins
   const add_currency = (val: number) => {
